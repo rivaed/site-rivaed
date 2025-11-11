@@ -1,34 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+// Crie estes componentes como arquivos simples em 'src/'
+// Ex: Home.jsx, About.jsx
 
+// ----- Exemplo de componente Home (Home.jsx) -----
+// function Home() {
+//   return <h2>Página Inicial</h2>
+// }
+// export default Home
+
+// ----- Exemplo de componente About (About.jsx) -----
+// function About() {
+//   return <h2>Sobre Nós</h2>
+// }
+// export default About
+
+
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Site: Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="App">
+      <nav>
+        <Link to="/">Home</Link> | {" "}
+        <Link to="/sobre">Sobre</Link>
+      </nav>
+
+      {/* Área onde as páginas serão renderizadas */}
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/sobre" element={<About />} /> */}
+
+        {/* Por enquanto, vamos usar o texto direto: */}
+        <Route path="/" element={<h2>Página Inicial</h2>} />
+        <Route path="/sobre" element={<h2>Sobre Nós</h2>} />
+      </Routes>
+    </div>
   )
 }
 
