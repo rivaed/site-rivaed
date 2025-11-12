@@ -20,14 +20,14 @@ function App() {
     <>
       <header className="header">
         <h1>Eduardo Riva</h1>
-        <p>Especialista em Cibersegurança | Engenheiro DevSecOps</p>
+        <p>Especialista em Cibersegurança | DevSecOps</p>
       </header>
 
       <main>
         <section className="section">
           <h2>Sobre Mim</h2>
           <p>
-            Sou um profissional de Segurança da Informação focado em automatizar
+            Sou um profissional de DevSecOps focado em automatizar
             e proteger infraestruturas. Atualmente, estou focado em construir
             pipelines de CI/CD seguros, implementar Infraestrutura como Código (IaC)
             e garantir a observabilidade de sistemas em produção.
@@ -44,7 +44,7 @@ function App() {
           <div className="project-list">
             <ProjectCard
               title="Projeto 1: O Pipeline Guardião (CI/CD)"
-              repoName="site-rivaed" // ATUALIZE SE O NOME DO REPO FOR OUTRO
+              repoName="portfolio-react-spa"
               description="Pipeline de CI/CD com GitHub Actions que analisa código (SAST com CodeQL) e dependências (SCA com Snyk)."
             />
             <ProjectCard
@@ -54,7 +54,7 @@ function App() {
             />
             <ProjectCard
               title="Projeto 3: A Torre de Vigia (Monitoramento)"
-              repoName="devsecops-ansible-hardening" // É o mesmo repo
+              repoName="devsecops-ansible-hardening"
               description="Stack de monitoramento (Prometheus, Grafana, Node Exporter) implantada via Ansible e Docker Compose."
             />
           </div>
@@ -62,7 +62,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        © 2025 {new Date().getFullYear()} - Construído com React, Ansible e muito café.
+        © 2025 - {new Date().getFullYear()} - Construído com React, Ansible e muito café.
       </footer>
     </>
   )
