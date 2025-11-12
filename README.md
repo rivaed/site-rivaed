@@ -1,16 +1,47 @@
-# Site React + Vite
+# Meu Site Portfólio (eduardoriva.com)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém o código-fonte do meu portfólio pessoal, `eduardoriva.com`.
 
-Currently, two official plugins are available:
+É uma Single Page Application (SPA) construída com **React** e **Vite**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## O Papel DevSecOps (Projeto 1)
 
-## React Compiler
+Mais do que apenas um site, este repositório serve como o **"Projeto 1: O Pipeline Guardião"** do meu portfólio DevSecOps. O seu objetivo é demonstrar a integração de segurança diretamente no ciclo de desenvolvimento (CI/CD).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Integração Contínua (CI) & Segurança
 
-## Expanding the ESLint configuration
+Este projeto é protegido por um pipeline de CI/CD usando **GitHub Actions** que executa dois trabalhos principais de segurança a cada `push` ou `pull request`:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **SAST (Static Analysis):** O `CodeQL` (nativo do GitHub) escaneia o código-fonte em busca de vulnerabilidades, como XSS ou falhas de injeção.
+* **SCA (Software Composition Analysis):** O `Snyk` (ferramenta externa) escaneia as dependências (`node_modules`) em busca de bibliotecas vulneráveis conhecidas.
+
+➡️ **[Clique aqui para ver os workflows do pipeline rodando](./actions)**
+
+### 2. Implantação Contínua (CD)
+
+Os arquivos estáticos deste projeto (gerados com `npm run build`) são o "artefato" de deploy para o meu **Projeto 2: A Fortaleza Automatizada**.
+
+Um playbook Ansible separado é responsável por:
+1.  Fazer o `build` desta aplicação.
+2.  Copiar os arquivos da pasta `dist/` para a VPS.
+3.  Garantir que o Nginx esteja servindo o conteúdo corretamente.
+
+➡️ **[Veja o playbook de deploy aqui](https://github.com/rivaed/devsecops-ansible-hardening)**
+
+---
+
+## Como Rodar Localmente
+
+1.  Clone este repositório:
+    ```bash
+    git clone [https://github.com/rivaed/portfolio-react-spa.git](https://github.com/rivaed/portfolio-react-spa.git)
+    ```
+2.  Entre na pasta e instale as dependências:
+    ```bash
+    cd portfolio-react-spa
+    npm install
+    ```
+3.  Rode o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
